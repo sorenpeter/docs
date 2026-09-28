@@ -79,6 +79,19 @@ See [plugin documentation][api-autonav] for usage and configuration.
 
 ---
 
+### `autoapi`
+
+_Since [0.0.66]_
+
+See [plugin documentation][autoapi] for usage and configuration.
+
+**Differences**:
+
+- `autoapi_root` must name a nonempty relative subdirectory. Empty strings, `.`, `./api`, absolute paths, and paths with `..` components are not supported.
+- Source discovery skips child symlinks. It always excludes `.git`, `.venv`, `venv`, `__pycache__`, and the output and cache directories, regardless of include settings.
+
+---
+
 ### `autorefs`
 
 _Since [0.0.22]_
@@ -211,19 +224,6 @@ See [plugin documentation][minify] for usage and configuration.
 
 ---
 
-### `mkdocs-autoapi`
-
-_Since [0.0.66]_
-
-See [plugin documentation][mkdocs-autoapi] for usage and configuration.
-
-**Differences**:
-
-- `autoapi_root` must name a nonempty relative subdirectory. Empty strings, `.`, `./api`, absolute paths, and paths with `..` components are not supported.
-- Source discovery skips child symlinks. It always excludes `.git`, `.venv`, `venv`, `__pycache__`, and the output and cache directories, regardless of include settings.
-
----
-
 ### `mkdocstrings`
 
 _Since [0.0.11]_
@@ -344,11 +344,11 @@ Custom Python callables for `tags_slugify`, `tags_sort_by`, `listings_sort_by`, 
 
 ## Unsupported plugins
 
-### `mkdocs-gen-files`
+### `gen-files`
 
-Zensical does not currently support [`mkdocs-gen-files`][mkdocs-gen-files].
+Zensical does not currently support [`gen-files`][gen-files].
 
-To create API reference pages automatically, use [`mkdocs-autoapi`](#mkdocs-autoapi) or [`mkdocs-api-autonav`](#api-autonav). Both generate API reference pages and navigation with `mkdocstrings`.
+To create API reference pages automatically, use [`autoapi`](#autoapi) or [`api-autonav`](#api-autonav). Both generate API reference pages and navigation with `mkdocstrings`.
 
 For other uses, run the generation scripts separately from the Zensical build. You can run them once or regularly. Track the generated files in version control.
 
@@ -403,8 +403,10 @@ without using their original codebases.
 [0.0.62]: https://github.com/zensical/zensical/releases/tag/v0.0.62
 [0.0.64]: https://github.com/zensical/zensical/releases/tag/v0.0.64
 [0.0.65]: https://github.com/zensical/zensical/releases/tag/v0.0.65
+[0.0.66]: https://github.com/zensical/zensical/releases/tag/v0.0.66
 [api-autonav]: https://github.com/tlambert03/mkdocs-api-autonav#configuration
 [audio]: https://github.com/jfcmontmorency/mkdocs-audio
+[autoapi]: https://mkdocs-autoapi.readthedocs.io/en/latest/usage/
 [autorefs]: https://mkdocstrings.github.io/autorefs/
 [awesome-nav]: https://lukasgeiter.github.io/mkdocs-awesome-nav/
 [backlog]: https://github.com/orgs/zensical/projects/2/views/1
@@ -414,6 +416,7 @@ without using their original codebases.
 [compatibility roadmap]: #compatibility-roadmap
 [create a change request]: https://github.com/zensical/zensical/issues/new/choose
 [exclude]: https://github.com/apenwarr/mkdocs-exclude
+[gen-files]: https://oprypin.github.io/mkdocs-gen-files/
 [git-authors]: https://timvink.github.io/mkdocs-git-authors-plugin/
 [git-committers]: https://github.com/byrnereese/mkdocs-git-committers-plugin
 [git-revision-date-localized]: https://timvink.github.io/mkdocs-git-revision-date-localized-plugin/
@@ -424,8 +427,6 @@ without using their original codebases.
 [markdown-exec]: https://github.com/pawamoy/markdown-exec
 [meta]: https://squidfunk.github.io/mkdocs-material/plugins/meta/
 [minify]: https://github.com/byrnereese/mkdocs-minify-plugin
-[mkdocs-autoapi]: https://mkdocs-autoapi.readthedocs.io/en/latest/usage/
-[mkdocs-gen-files]: https://oprypin.github.io/mkdocs-gen-files/
 [mkdocstrings]: https://mkdocstrings.github.io/
 [not_in_nav]: https://github.com/zensical/backlog/issues/63
 [offline]: https://squidfunk.github.io/mkdocs-material/plugins/offline/
